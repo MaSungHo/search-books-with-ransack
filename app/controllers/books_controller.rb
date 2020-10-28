@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   # GET /books.json
   def index
     @q = Book.ransack(params[:q])
-    @books = @q.result
+    @books = @q.result.page(params[:page])
   end
 
   # GET /books/1
